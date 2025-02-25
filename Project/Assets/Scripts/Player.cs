@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -6,6 +7,10 @@ public class Player : MonoBehaviour
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
+
+	[SerializeField] private float maxHp = 100f;
+	private float currentHp;
+	[SerializeField] private Image hpBar;
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -14,7 +19,8 @@ public class Player : MonoBehaviour
 	}
 	void Start()
 	{
-
+		currentHp= maxHp;
+		updateHpBar();
 	}
 
 	void Update()
@@ -41,6 +47,30 @@ public class Player : MonoBehaviour
 		else
 		{
 			animator.SetBool("isRun", false);
+		}
+	}
+
+	public void takeDame(float damege)
+	{
+		currentHp -= damege;
+		currentHp = Mathf.Max(currentHp, 0);
+		updateHpBar();
+		if (currentHp <= 0)
+		{
+			die();
+		}
+	}
+
+	private void die()
+	{
+		Destroy(gameObject);
+	}
+
+	private void updateHpBar()
+	{
+		if (hpBar != null)
+		{
+			hpBar.fillAmount = currentHp / maxHp;
 		}
 	}
 }

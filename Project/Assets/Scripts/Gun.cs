@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -10,10 +11,13 @@ public class Gun : MonoBehaviour
 	[SerializeField] private int maxAmmo = 24;
 	[SerializeField] private int currentAmmo;
 
+	[SerializeField] private TextMeshProUGUI amoText;
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		currentAmmo = maxAmmo;
+		updateAmoText();
 	}
 
 	// Update is called once per frame
@@ -21,7 +25,7 @@ public class Gun : MonoBehaviour
 	{
 		RotateGun();
 		Shot();
-		ReLoad();	
+		ReLoad();
 	}
 
 	void RotateGun()
@@ -49,6 +53,7 @@ public class Gun : MonoBehaviour
 			nextShot = Time.time + shotDelay;
 			Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
 			currentAmmo--;
+			updateAmoText();
 		}
 	}
 	void ReLoad()
@@ -56,6 +61,22 @@ public class Gun : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
 		{
 			currentAmmo = maxAmmo;
+			updateAmoText();
+		}
+	}
+
+	private void updateAmoText()
+	{
+		if (amoText != null)
+		{
+			if (currentAmmo > 0)
+			{
+				amoText.text = currentAmmo.ToString();
+			}
+			else
+			{
+				amoText.text = "Empty";
+			}
 		}
 	}
 }
