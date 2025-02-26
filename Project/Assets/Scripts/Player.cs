@@ -73,4 +73,13 @@ public class Player : MonoBehaviour
 			hpBar.fillAmount = currentHp / maxHp;
 		}
 	}
+	public void Heal(float hp)
+	{
+		if(currentHp < maxHp)
+		{
+			currentHp += hp;
+			currentHp = Mathf.Min(currentHp, maxHp);
+			updateHpBar();
+		}
+	}
 }

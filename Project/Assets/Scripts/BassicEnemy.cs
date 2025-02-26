@@ -19,7 +19,7 @@ public class BassicEnemy : Enemy
 		{
 			if (player != null)
 			{
-				player.takeDame(stayrDamege);
+				player.takeDame(stayDamage);
 			}
 		}
 	}

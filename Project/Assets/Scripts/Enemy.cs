@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour
 	[SerializeField] private Image hpBar;
 
 	[SerializeField] protected float enterDamege=10f;
-	[SerializeField] protected float stayrDamege=1f;
+	[SerializeField] protected float stayDamage=1f;
 
 	protected virtual void Start()
 	{

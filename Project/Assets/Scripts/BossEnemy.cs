@@ -32,7 +32,7 @@ public class BossEnemy : Enemy
     {
         if (collision.CompareTag("Player"))
         {
-            player.takeDame(stayrDamege);
+            player.takeDame(stayDamage);
         }
     }
 
