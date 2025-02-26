@@ -199,11 +199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454bcd0ea7f0c7347b56332c6e97dadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1
   maxHp: 50
   hpBar: {fileID: 1587608147439982167}
   enterDamege: 8
-  stayrDamege: 0.5
+  stayDamage: 1
 --- !u!1001 &2889477202289980643
 PrefabInstance:
   m_ObjectHideFlags: 0
