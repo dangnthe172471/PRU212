@@ -1159,7 +1159,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77503483}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -1242,7 +1242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &316002935
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,6 +1278,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 781674525981260190, guid: 2d2f326516ebd564193d235aced74d23, type: 3}
+  - {fileID: 2290129442810424029, guid: 0c06dd564ea94ee45bcfcb437c7d8364, type: 3}
+  - {fileID: 5180284718185509552, guid: f66e72c38a15e5f43858587cbaa820f0, type: 3}
+  - {fileID: 3774904386304307853, guid: fb2be35a929ef4049a0db145cb701b5c, type: 3}
   spamPoints:
   - {fileID: 1373248515}
   - {fileID: 1168594032}
