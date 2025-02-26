@@ -15,7 +15,7 @@ public class MiniEnemy : Enemy
     {
         if (collision.CompareTag("Player"))
         {
-            player.takeDame(stayrDamege);
+            player.takeDame(stayDamage);
         }
     }
 }
