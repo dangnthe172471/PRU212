@@ -8,7 +8,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.CompareTag("EnemyBullet"))
         {
             Player player = GetComponent<Player>();
-            player.takeDame(10f);
+            player.takeDame(20f);
         }else if (collision.CompareTag("Energy"))
         {
             gameManager.addE();
