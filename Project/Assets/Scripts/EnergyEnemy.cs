@@ -5,9 +5,12 @@ public class EnergyEnemy : Enemy
     [SerializeField] private GameObject energyObj;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(player != null)
+        if (collision.CompareTag("Player"))
         {
-            player.takeDame(enterDamege);
+            if (player != null)
+            {
+                player.takeDame(enterDamege);
+            }
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
