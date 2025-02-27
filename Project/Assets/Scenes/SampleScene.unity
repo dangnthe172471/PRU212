@@ -1198,17 +1198,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2231247095596699882, guid: e52ee623e83140343b7136ba8c72c27d, type: 3}
-      propertyPath: moveSpeed
-      value: 1
+    - target: {fileID: 3546291787956059445, guid: e52ee623e83140343b7136ba8c72c27d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546291787956059445, guid: e52ee623e83140343b7136ba8c72c27d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.79
       objectReference: {fileID: 0}
     - target: {fileID: 6366831559222696298, guid: e52ee623e83140343b7136ba8c72c27d, type: 3}
       propertyPath: m_Name
       value: BossEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6366831559222696298, guid: e52ee623e83140343b7136ba8c72c27d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8766307824743346959, guid: e52ee623e83140343b7136ba8c72c27d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20757,15 +20757,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5659447931383815928, guid: 56a1f85a24b6b6340adf58d67abebbfc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8179326489159991886, guid: 56a1f85a24b6b6340adf58d67abebbfc, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1541929093444032949}
+    - target: {fileID: 9049887959518573638, guid: 56a1f85a24b6b6340adf58d67abebbfc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9167879090612756694, guid: 56a1f85a24b6b6340adf58d67abebbfc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
