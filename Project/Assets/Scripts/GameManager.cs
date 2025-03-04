@@ -1,4 +1,6 @@
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
 
 
-
+    private enemyManager _enemyManager;
+    private playerData _playerData;
     void Start()
     {
         currentEnergy = 0;
@@ -100,6 +103,24 @@ public class GameManager : MonoBehaviour
         overMenu.SetActive(false);
         mainMenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        string enemyPath = Path.Combine(Application.persistentDataPath, "enemyData.json");
+        string playerPath = Path.Combine(Application.persistentDataPath, "playerData.json");
+
+        if (File.Exists(enemyPath))
+        {
+            File.Delete(enemyPath);
+        }
+
+        if (File.Exists(playerPath))
+        {
+            File.Delete(playerPath);
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+ 
     }
 
 

@@ -11,6 +11,7 @@ public class playerData : MonoBehaviour
 {
     public Transform player; // Kéo Player vào đây trong Unity Inspector
     private string path;
+    private Player p;
 
     void Start()
     {
@@ -18,11 +19,11 @@ public class playerData : MonoBehaviour
     }
     private void Update()
     {
-        if ( Input.GetKeyDown(KeyCode.I ))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             SavePlayer();
         }
-        if ( Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             LoadPlayer();
         }
@@ -69,4 +70,5 @@ public class playerData : MonoBehaviour
                 "2 Không tìm thấy file JSON để load!");
         }
     }
+
 }

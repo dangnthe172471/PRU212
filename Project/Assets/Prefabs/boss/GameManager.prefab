@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyHold: 3
-  boss: {fileID: 0}
+  boss: {fileID: 6366831559222696298, guid: e52ee623e83140343b7136ba8c72c27d, type: 3}
   enemySpam: {fileID: 0}
   energyBar: {fileID: 0}
   gameUI: {fileID: 0}
