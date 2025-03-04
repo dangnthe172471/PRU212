@@ -18,11 +18,11 @@ public class playerData : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if ( Input.GetKeyDown(KeyCode.I ))
         {
             SavePlayer();
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        if ( Input.GetKeyDown(KeyCode.O))
         {
             LoadPlayer();
         }
