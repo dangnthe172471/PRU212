@@ -2,6 +2,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+
 public class GameManager : MonoBehaviour
 {
     private int currentEnergy;
@@ -10,17 +12,14 @@ public class GameManager : MonoBehaviour
     private bool callBoss = false;
     [SerializeField] private GameObject enemySpam;
     [SerializeField] private Image energyBar;
+    [SerializeField] private GameObject[] panels;
+
+
+    [SerializeField] GameObject mana;
 
 
 
-    [SerializeField] GameObject gameUI;
-    [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject overMenu;
-    [SerializeField] private GameObject pauseMenu;
 
-
-    private enemyManager _enemyManager;
-    private playerData _playerData;
     void Start()
     {
         currentEnergy = 0;
@@ -55,7 +54,9 @@ public class GameManager : MonoBehaviour
         //enemySpam.SetActive(false);
 
         //hidden energyBar
-        gameUI.SetActive(false);
+        mana.SetActive(false);
+
+
     }
     private void UpdateEnergyBar()
     {
@@ -66,49 +67,77 @@ public class GameManager : MonoBehaviour
         }
 
     }
+   
+
+ 
+
+
+
+
     public void MainMenu()
     {
-        mainMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-        overMenu.SetActive(false);
+        //mainMenu.SetActive(true);
+        //pauseMenu.SetActive(false);
+        //overMenu.SetActive(false);
 
+        ShowPanelByName("MainMenu");
         Time.timeScale = 0f;
     }
     public void OverMenu()
     {
-        overMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-
-        mainMenu.SetActive(false);
+        ShowPanelByName("GameOver");
         Time.timeScale = 0f;
 
     }
     public void PauseMenu()
     {
-        pauseMenu.SetActive(true);
-        overMenu.SetActive(false);
-        mainMenu.SetActive(false);
+        ShowPanelByName("GamePause");
         Time.timeScale = 0f;
     }
     public void StartGame()
     {
-        pauseMenu.SetActive(false);
-        overMenu.SetActive(false);
-        mainMenu.SetActive(false);
+
+        ShowPanelByName("");
         Time.timeScale = 1f;
     }
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
-        overMenu.SetActive(false);
-        mainMenu.SetActive(false);
+        ShowPanelByName("");
         Time.timeScale = 1f;
+    }  
+
+    public void Shop()
+    {
+        ShowPanelByName("Shop");
+        Time.timeScale = 0f;
+    }
+    public void Home()
+    {
+        ShowPanelByName("Home");
+        Time.timeScale = 0f;
+    }
+    public void UpGrade()
+    {
+        ShowPanelByName("UpGrade");
+        Time.timeScale = 0f;
+    }
+    public void Save_Quit()
+    {
+        enemyManager.Instance.SaveEnemies();
+        playerData.Instance.SavePlayer();
+        ShowPanelByName("Home");
+        Time.timeScale = 0f;
+    } public void Quit()
+    {
+
+        ShowPanelByName("Home");
+        Time.timeScale = 0f;
     }
     public void RestartGame()
     {
-        Time.timeScale = 1f;
-        string enemyPath = Path.Combine(Application.persistentDataPath, "enemyData.json");
-        string playerPath = Path.Combine(Application.persistentDataPath, "playerData.json");
+     
+        string enemyPath = Path.Combine(Application.dataPath, "enemyData.json");
+        string playerPath = Path.Combine(Application.dataPath, "playerData.json");
 
         if (File.Exists(enemyPath))
         {
@@ -119,9 +148,33 @@ public class GameManager : MonoBehaviour
         {
             File.Delete(playerPath);
         }
+        //mana.SetActive(false);
+        //ShowPanelByName("");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
- 
+        Time.timeScale = 1f;
+
     }
 
+
+    public void ShowPanelByName(string panelName)
+    {
+        // Ẩn tất cả panel
+        foreach (GameObject panel in panels)
+        {
+            panel.SetActive(false);
+        }
+
+        mana.SetActive(true);
+        // Hiển thị panel có tên tương ứng
+        foreach (GameObject panel in panels)
+        {
+            if (panel.name == panelName)
+            {
+                panel.SetActive(true);
+
+                return;
+            }
+        }
+    }
 
 }

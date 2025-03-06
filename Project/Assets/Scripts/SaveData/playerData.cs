@@ -13,9 +13,16 @@ public class playerData : MonoBehaviour
     private string path;
     private Player p;
 
+    public static playerData Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
     void Start()
     {
-        path = Application.persistentDataPath + "/playerData.json";
+        path = Application.dataPath + "/playerData.json";
     }
     private void Update()
     {

@@ -20,9 +20,18 @@ public class enemyManager : MonoBehaviour
 {
     public List<GameObject> enemyPrefabs; // Danh sách Prefabs của quái
     private string path;
+
+    public static enemyManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
     void Start()
     {
-        path = Path.Combine(Application.persistentDataPath, "enemyData.json");
+        path = Path.Combine(Application.dataPath, "enemyData.json");
     }
 
     void Update()
