@@ -26,14 +26,14 @@ public class playerData : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            SavePlayer();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            LoadPlayer();
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    SavePlayer();
+        //}
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    LoadPlayer();
+        //}
     }
     public void SavePlayer()
     {
@@ -77,5 +77,19 @@ public class playerData : MonoBehaviour
                 "2 Không tìm thấy file JSON để load!");
         }
     }
+    public void ResetPlayer()
+    {
+      
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
 
+        // 2. Đặt lại vị trí Player về mặc định
+        if (player != null)
+        {
+            player.position = new Vector3(0, 0, 0);
+            Debug.Log("Đã đặt lại vị trí Player về mặc định!");
+        }
+    }
 }

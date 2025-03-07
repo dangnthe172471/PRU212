@@ -94,15 +94,17 @@ public class GameManager : MonoBehaviour
         ShowPanelByName("GamePause");
         Time.timeScale = 0f;
     }
-    public void StartGame()
+    public void NewGame()
     {
-
-        ShowPanelByName("");
+        playerData.Instance.ResetPlayer();
+        enemyManager.Instance.ResetEnemies();
+        ShowPanelByName();
+        mana.SetActive(true);
         Time.timeScale = 1f;
     }
     public void ResumeGame()
     {
-        ShowPanelByName("");
+        ShowPanelByName();
         Time.timeScale = 1f;
     }  
 
@@ -127,33 +129,36 @@ public class GameManager : MonoBehaviour
         playerData.Instance.SavePlayer();
         ShowPanelByName("Home");
         Time.timeScale = 0f;
-    } public void Quit()
+    } 
+    public void Continue()
+    {
+        enemyManager.Instance.LoadEnemies();
+        playerData.Instance.LoadPlayer();
+        mana.SetActive(true);
+        ShowPanelByName();
+        Time.timeScale = 1f;
+    }
+    public void Quit()
     {
 
         ShowPanelByName("Home");
         Time.timeScale = 0f;
     }
-    public void RestartGame()
-    {
-     
-        string enemyPath = Path.Combine(Application.dataPath, "enemyData.json");
-        string playerPath = Path.Combine(Application.dataPath, "playerData.json");
+    //public void RestartGame()
+    //{
 
-        if (File.Exists(enemyPath))
-        {
-            File.Delete(enemyPath);
-        }
+    //    playerData.Instance.ResetPlayer();
+    //    enemyManager.Instance.ResetEnemies();
 
-        if (File.Exists(playerPath))
-        {
-            File.Delete(playerPath);
-        }
-        //mana.SetActive(false);
-        //ShowPanelByName("");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
+      
 
-    }
+    //    mana.SetActive(true);
+    //    //mana.SetActive(false);
+    //    //ShowPanelByName();
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //    Time.timeScale = 1f;
+
+    //}
 
 
     public void ShowPanelByName(string panelName)
@@ -161,20 +166,24 @@ public class GameManager : MonoBehaviour
         // Ẩn tất cả panel
         foreach (GameObject panel in panels)
         {
-            panel.SetActive(false);
+            //panel.SetActive(false);
+            panel.SetActive(panel.name == panelName);
         }
 
         mana.SetActive(true);
-        // Hiển thị panel có tên tương ứng
+   
+    }   
+    public void ShowPanelByName()
+    {
+        // Ẩn tất cả panel
         foreach (GameObject panel in panels)
         {
-            if (panel.name == panelName)
-            {
-                panel.SetActive(true);
+            panel.SetActive(false);
 
-                return;
-            }
         }
+
+  
+
     }
 
 }

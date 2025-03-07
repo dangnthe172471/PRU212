@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
-   [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
     public void StartGame()
     {
-        gameManager.StartGame();
+        gameManager.NewGame();
     }
     public void QuitGame()
     {

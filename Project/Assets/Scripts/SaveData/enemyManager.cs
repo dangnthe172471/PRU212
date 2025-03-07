@@ -36,14 +36,14 @@ public class enemyManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            SaveEnemies();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            LoadEnemies();
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    SaveEnemies();
+        //}
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    LoadEnemies();
+        //}
     }
 
     public void SaveEnemies()
@@ -101,5 +101,22 @@ public class enemyManager : MonoBehaviour
 
         Debug.Log("Đã load tất cả quái từ enemyData.json.");
     }
+    public void ResetEnemies()
+    {
+        if (File.Exists(path))
+        {
+            File.Delete(path);  
+        }
+
+      
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in allEnemies)
+        {
+            Destroy(enemy);
+        }
+
+
+    }
+
 
 }
