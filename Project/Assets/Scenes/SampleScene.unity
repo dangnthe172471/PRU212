@@ -21449,6 +21449,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5c64b0548b5f1ce44be641f87c5e941a, type: 3}
+    - target: {fileID: 434032961025205144, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 635962298774967249, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -21457,10 +21461,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7ab6f75f2af33974cadaebd389dfb10d, type: 3}
+    - target: {fileID: 741876420179693930, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 985139918313841583, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9d582f4895df7a94188381c6b98127ae, type: 3}
+    - target: {fileID: 985139918313841583, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1146961106975955709, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -21592,6 +21604,10 @@ PrefabInstance:
     - target: {fileID: 3902117861374497484, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935553196405317899, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4512927680518500535, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21809,6 +21825,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7570407057905813020, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7866438149383729583, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
       propertyPath: m_Name
       value: Gun1
@@ -21971,6 +21991,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493767561955981661, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739149659748741776, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
+      propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8869311047633450234, guid: 0e1f17f2d06173f4a8fb0200966136f3, type: 3}
