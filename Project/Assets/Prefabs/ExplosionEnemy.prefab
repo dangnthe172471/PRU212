@@ -280,6 +280,7 @@ MonoBehaviour:
   enterDamege: 10
   stayDamage: 1
   explorePrefabs: {fileID: 1313496397936986672, guid: 5e85e662768591b48ab90117fff6d57b, type: 3}
+  audioManager: {fileID: 5465672890075696055, guid: 92ccc1c8b8405e74986688590955ab4e, type: 3}
 --- !u!1 &6595627573426514810
 GameObject:
   m_ObjectHideFlags: 0

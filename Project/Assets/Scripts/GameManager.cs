@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject overMenu;
     [SerializeField] private GameObject pauseMenu;
 
-
+    [SerializeField] private AudioManager audioManager;
 
     void Start()
     {
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         UpdateEnergyBar();
         boss.SetActive(false);
         MainMenu();
+        audioManager.StopAudioGame();
     }
 
     // Update is called once per frame
@@ -53,6 +54,8 @@ public class GameManager : MonoBehaviour
 
         //hidden energyBar
         gameUI.SetActive(false);
+
+        audioManager.PlayBossAudio();
     }
     private void UpdateEnergyBar()
     {
@@ -93,6 +96,7 @@ public class GameManager : MonoBehaviour
         overMenu.SetActive(false);
         mainMenu.SetActive(false);
         Time.timeScale = 1f;
+        audioManager.PlayDefaultAudio();
     }
     public void ResumeGame()
     {
