@@ -10,6 +10,7 @@ TagManager:
   - Explosion
   - EnemyBullet
   - panel
+  - Gun
   layers:
   - Default
   - TransparentFX
