@@ -20,14 +20,14 @@ public class GunSwitcher : MonoBehaviour
 
     void Update()
     {
-        // Chọn súng bằng phím số (1 -> n)
-        for (int i = 0; i < guns.Length; i++)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
-                EquipGun(i + 1);
-            }
-        }
+        //// Chọn súng bằng phím số (1 -> n)
+        //for (int i = 0; i < guns.Length; i++)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+        //    {
+        //        EquipGun(i + 1);
+        //    }
+        //}
     }
 
     public void EquipGun(int index)

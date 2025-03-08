@@ -22,6 +22,7 @@ public class goldManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    
     }
     private void Start()
     {
