@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mana;
 
 
-    [SerializeField] private AudioManager audioManager;
+
 
     void Start()
     {
@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
         UpdateEnergyBar();
         boss.SetActive(false);
         MainMenu();
-        audioManager.StopAudioGame();
     }
 
     // Update is called once per frame
@@ -55,9 +54,9 @@ public class GameManager : MonoBehaviour
         //enemySpam.SetActive(false);
 
         //hidden energyBar
-        gameUI.SetActive(false);
+        mana.SetActive(false);
 
-        audioManager.PlayBossAudio();
+
     }
     private void UpdateEnergyBar()
     {
@@ -102,7 +101,6 @@ public class GameManager : MonoBehaviour
         ShowPanelByName();
         mana.SetActive(true);
         Time.timeScale = 1f;
-        audioManager.PlayDefaultAudio();
     }
     public void ResumeGame()
     {

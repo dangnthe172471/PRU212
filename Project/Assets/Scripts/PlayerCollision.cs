@@ -1,11 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private Gun gun;
-
-    [SerializeField] private AudioManager audioManager;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyBullet"))
@@ -15,12 +12,7 @@ public class PlayerCollision : MonoBehaviour
         }else if (collision.CompareTag("Energy"))
         {
             gameManager.addE();
-			gun.ActivateBuff();
-			Destroy(collision.gameObject);
-
-            audioManager.PlayEnerty();
+            Destroy(collision.gameObject);
         }
     }
-
-
 }

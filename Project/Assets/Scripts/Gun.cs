@@ -1,4 +1,3 @@
-﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -12,41 +11,21 @@ public class Gun : MonoBehaviour
 	[SerializeField] private int maxAmmo = 24;
 	[SerializeField] private int currentAmmo;
 
-	private SpriteRenderer spriteRenderer;
-
 	[SerializeField] private TextMeshProUGUI amoText;
-	[SerializeField] private TextMeshProUGUI timeBuff;
 
-	private bool isBuff = false;
-	private float buffEndTime = 0f;
-
-
-	[SerializeField] private AudioManager audioManager;
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
 		currentAmmo = maxAmmo;
 		updateAmoText();
-
-		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		RotateGun();
+		Shot();
 		ReLoad();
-
-		if (isBuff)
-		{
-			Shot5tia();
-		}
-		else
-		{
-			Shot();
-		}
-
-		updateTimeBuff();
 	}
 
 	void RotateGun()
@@ -76,82 +55,16 @@ public class Gun : MonoBehaviour
 			Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
 			currentAmmo--;
 			updateAmoText();
-			audioManager.PlayShot();
 		}
 	}
-
-	void Shot5tia()
-	{
-		if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > nextShot)
-		{
-			nextShot = Time.time + shotDelay;
-
-			// Bắn viên đạn chính
-			Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
-
-			// Bắn viên đạn lệch trái
-			Quaternion leftRotation = firePos.rotation * Quaternion.Euler(0, 0, -15);
-			Quaternion leftRotation2 = firePos.rotation * Quaternion.Euler(0, 0, -30);
-			Instantiate(bulletPrefabs, firePos.position, leftRotation);
-			Instantiate(bulletPrefabs, firePos.position, leftRotation2);
-
-			// Bắn viên đạn lệch phải
-			Quaternion rightRotation = firePos.rotation * Quaternion.Euler(0, 0, 15);
-			Quaternion rightRotation2 = firePos.rotation * Quaternion.Euler(0, 0, 30);
-			Instantiate(bulletPrefabs, firePos.position, rightRotation);
-			Instantiate(bulletPrefabs, firePos.position, rightRotation2);
-
-			currentAmmo--;
-			updateAmoText();
-			audioManager.PlayShot();
-		}
-	}
-	private void updateTimeBuff()
-	{
-		if (timeBuff != null)
-		{
-			if (isBuff)
-			{
-				float timeLeft = buffEndTime - Time.time;
-				timeBuff.text = Mathf.CeilToInt(timeLeft).ToString();
-			}
-			else
-			{
-				timeBuff.text = "";
-			}
-		}
-	}
-
-	public void ActivateBuff()
-	{
-		isBuff = true;
-		buffEndTime = Time.time + 15f;
-		StopAllCoroutines();
-		StartCoroutine(DisableBuffAfterTime(15f));
-	}
-
-	private IEnumerator DisableBuffAfterTime(float duration)
-	{
-		yield return new WaitForSeconds(duration);
-		isBuff = false;
-	}
-
 	void ReLoad()
 	{
 		if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
 		{
-			StartCoroutine(DelayReLoad(1f));
-			audioManager.PlayReload();
+			currentAmmo = maxAmmo;
+			updateAmoText();
 		}
 	}
-
-	private IEnumerator DelayReLoad(float duration)
-	{
-		yield return new WaitForSeconds(duration);
-		currentAmmo = maxAmmo;
-		updateAmoText();
-	}
-
 
 	private void updateAmoText()
 	{
