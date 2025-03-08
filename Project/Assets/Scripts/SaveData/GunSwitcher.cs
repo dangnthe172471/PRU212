@@ -1,54 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GunSwitcher : MonoBehaviour
+public class NewMonoBehaviourScript : MonoBehaviour
 {
-    public GameObject[] guns; // Danh sách các súng
-    private int currentGunIndex = -1; // Không có súng ban đầu
-    public Transform gunHolder; // Vị trí gắn súng trên Player
+    [SerializeField] private List<Gun> guns = new List<Gun>(); // Danh sách các súng
+    private int currentGunIndex = 0; // Chỉ số súng hiện tại
 
-    void Start()
+    private void Start()
     {
-        if (guns.Length > 0)
+        EquipGun(currentGunIndex); // Trang bị súng ban đầu
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchGun(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchGun(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchGun(2);
+    }
+
+    public void SwitchGun(int gunIndex)
+    {
+        if (gunIndex >= 0 && gunIndex < guns.Count)
         {
-            EquipGun(1); // Trang bị súng đầu tiên nếu có
-        }
-        else
-        {
-            Debug.LogWarning("Không có súng nào trong danh sách guns!");
+            currentGunIndex = gunIndex;
+            EquipGun(currentGunIndex);
         }
     }
 
-    void Update()
+    private void EquipGun(int index)
     {
-        // Chọn súng bằng phím số (1 -> n)
-        for (int i = 0; i < guns.Length; i++)
+        for (int i = 0; i < guns.Count; i++)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
-                EquipGun(i + 1);
-            }
+            guns[i].gameObject.SetActive(i == index);
         }
-    }
-
-    public void EquipGun(int index)
-    {
-        if (index <= 0 || index > guns.Length) return;
-
-        // Vô hiệu hóa tất cả súng
-        for (int i = 0; i < guns.Length; i++)
-        {
-            bool isSelected = (i == index - 1);
-            guns[i].SetActive(isSelected);
-
-            if (isSelected)
-            {
-                guns[i].transform.SetParent(gunHolder);
-                guns[i].transform.localPosition = Vector3.zero; // Gắn vào Player
-                guns[i].transform.localRotation = Quaternion.identity;
-            }
-        }
-
-        currentGunIndex = index;
-        Debug.Log("Đã trang bị súng: " + index);
     }
 }

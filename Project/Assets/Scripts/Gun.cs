@@ -48,8 +48,7 @@ public class Gun : MonoBehaviour
 	}
 	void Shot()
 	{
-        if (Time.timeScale == 0f) return;
-        if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > 0)
+		if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > 0)
 		{
 			nextShot = Time.time + shotDelay;
 			Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
