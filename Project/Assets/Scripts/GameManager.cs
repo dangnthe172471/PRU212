@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] GameObject mana;
-
+    [SerializeField] private GameObject gold;
 
 
 
@@ -110,7 +110,9 @@ public class GameManager : MonoBehaviour
 
     public void Shop()
     {
+    
         ShowPanelByName("Shop");
+        gold.SetActive(true);
         Time.timeScale = 0f;
     }
     public void Home()
@@ -120,7 +122,9 @@ public class GameManager : MonoBehaviour
     }
     public void UpGrade()
     {
+     
         ShowPanelByName("UpGrade");
+        gold.SetActive(true);
         Time.timeScale = 0f;
     }
     public void Save_Quit()
