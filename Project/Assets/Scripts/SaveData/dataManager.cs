@@ -22,7 +22,7 @@ public class dataManager : MonoBehaviour
             return;
         }
 
-        dataFilePath = Path.Combine(Application.persistentDataPath, "gameData.json");
+        dataFilePath = Path.Combine(Application.dataPath, "gameData.json");
         LoadGameData();
     }
 

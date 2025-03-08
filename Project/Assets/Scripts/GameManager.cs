@@ -142,6 +142,13 @@ public class GameManager : MonoBehaviour
         ShowPanelByName();
         Time.timeScale = 1f;
     }
+    public void ContinuePauseMenu()
+    {
+
+        mana.SetActive(true);
+        ShowPanelByName();
+        Time.timeScale = 1f;
+    }
     public void Quit()
     {
 

@@ -11,6 +11,7 @@ TagManager:
   - EnemyBullet
   - panel
   - Gun
+  - map
   layers:
   - Default
   - TransparentFX
