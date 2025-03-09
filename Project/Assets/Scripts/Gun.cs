@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using TMPro;
+using Unity.Jobs;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -17,14 +18,14 @@ public class Gun : MonoBehaviour
 
 	private bool isBuff = false;
 	private float buffEndTime = 0f;
+    [SerializeField] private int levelBuff = 1;
 
 	[SerializeField] private AudioManager audioManager;
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		currentAmmo = maxAmmo;
+        currentAmmo = maxAmmo;
 		updateAmoText();
-
 	}
 
 	// Update is called once per frame
@@ -32,16 +33,7 @@ public class Gun : MonoBehaviour
 	{
 		RotateGun();
 		ReLoad();
-
-		if (isBuff)
-		{
-			Shot5tia();
-		}
-		else
-		{
-			Shot();
-		}
-
+        ShotByNumberBullet(levelBuff);
 		updateTimeBuff();
 	}
 
@@ -76,30 +68,58 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	void Shot5tia()
+	void ShotByNumberBullet(int bullet)
 	{
-		if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > nextShot)
+        if(levelBuff % 5 == 0)
 		{
+			bullet = 5;
+        }else
+		{
+			bullet = levelBuff % 5;
+        }
+        if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && Time.time > nextShot)
+		{
+			if(currentAmmo < bullet)
+			{
+				bullet = currentAmmo;
+            }
 			nextShot = Time.time + shotDelay;
-
-			// Bắn viên đạn chính
-			Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
-
-			// Bắn viên đạn lệch trái
-			Quaternion leftRotation = firePos.rotation * Quaternion.Euler(0, 0, -15);
-			Quaternion leftRotation2 = firePos.rotation * Quaternion.Euler(0, 0, -30);
-			Instantiate(bulletPrefabs, firePos.position, leftRotation);
-			Instantiate(bulletPrefabs, firePos.position, leftRotation2);
-
-			// Bắn viên đạn lệch phải
-			Quaternion rightRotation = firePos.rotation * Quaternion.Euler(0, 0, 15);
-			Quaternion rightRotation2 = firePos.rotation * Quaternion.Euler(0, 0, 30);
-			Instantiate(bulletPrefabs, firePos.position, rightRotation);
-			Instantiate(bulletPrefabs, firePos.position, rightRotation2);
-
-			currentAmmo--;
-			updateAmoText();
-			audioManager.PlayShot();
+            Quaternion leftRotation = firePos.rotation * Quaternion.Euler(0, 0, -15);
+            Quaternion leftRotation2 = firePos.rotation * Quaternion.Euler(0, 0, -30);
+            Quaternion rightRotation = firePos.rotation * Quaternion.Euler(0, 0, 15);
+            Quaternion rightRotation2 = firePos.rotation * Quaternion.Euler(0, 0, 30);
+            if (bullet == 1)
+			{
+                Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
+            } else if (bullet == 2)
+			{
+                Instantiate(bulletPrefabs, firePos.position, leftRotation);
+                Instantiate(bulletPrefabs, firePos.position, rightRotation);
+            }
+            else if (bullet == 3)
+            {
+                Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
+                Instantiate(bulletPrefabs, firePos.position, leftRotation);
+                Instantiate(bulletPrefabs, firePos.position, rightRotation);
+            }
+            else if (bullet == 4)
+            {
+                Instantiate(bulletPrefabs, firePos.position, leftRotation);
+                Instantiate(bulletPrefabs, firePos.position, rightRotation); 
+				Instantiate(bulletPrefabs, firePos.position, leftRotation2);
+                Instantiate(bulletPrefabs, firePos.position, rightRotation2);
+            }
+            else if (bullet == 5)
+            {
+                Instantiate(bulletPrefabs, firePos.position, firePos.rotation);
+                Instantiate(bulletPrefabs, firePos.position, leftRotation);
+                Instantiate(bulletPrefabs, firePos.position, rightRotation);
+                Instantiate(bulletPrefabs, firePos.position, leftRotation2);
+                Instantiate(bulletPrefabs, firePos.position, rightRotation2);
+            }
+            currentAmmo -= bullet;
+            updateAmoText();
+            audioManager.PlayShot();
 		}
 	}
 	private void updateTimeBuff()
@@ -118,10 +138,17 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	public void ActivateBuff()
+	public void ActivateBuff(int plusLevelBuff)
 	{
 		isBuff = true;
-		buffEndTime = Time.time + 15f;
+		if(levelBuff + plusLevelBuff >= 1)
+		{
+            levelBuff = levelBuff + plusLevelBuff;
+        } else
+		{
+			levelBuff = 1;
+        }
+        buffEndTime = Time.time + 15f;
 		StopAllCoroutines();
 		StartCoroutine(DisableBuffAfterTime(15f));
 	}

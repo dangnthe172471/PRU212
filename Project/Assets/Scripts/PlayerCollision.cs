@@ -22,12 +22,10 @@ public class PlayerCollision : MonoBehaviour
 				Gun gun = e.GetComponent<Gun>();
 				if (gun != null)
 				{
-					gun.ActivateBuff();
+					gun.ActivateBuff(1);
 				}
 			}
-
 			Destroy(collision.gameObject);
-
 			audioManager.PlayEnerty();
 		}
 	}
