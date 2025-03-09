@@ -12,6 +12,7 @@ TagManager:
   - panel
   - Gun
   - map
+  - btnShop
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,8 @@ public class goldManager : MonoBehaviour
     public static goldManager Instance { get; private set; }
 
     public TextMeshProUGUI goldText;
+    public bool canSpend = true;
+
 
     private void Awake()
     {
@@ -57,7 +59,7 @@ public class goldManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError(" goldText bị NULL! Hãy gán TextMeshProUGUI trong Inspector.");
+            Debug.LogError(" goldText bị NULL! Hãy gán TextMeshProUGUI trong Inspector (Data).");
         }
     }
 
@@ -71,6 +73,7 @@ public class goldManager : MonoBehaviour
 
     public void SpendGold(int amount)
     {
+        if (!canSpend) { return; }
         if (dataManager.Instance.gameData.gold >= amount)
         {
             dataManager.Instance.gameData.gold -= amount;
