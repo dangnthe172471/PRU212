@@ -43,7 +43,7 @@ public abstract class Enemy : MonoBehaviour
 	}
 	public virtual void takeDame(float damege)
 	{
-		currentHp -= damege;
+		currentHp -= (damege + player.attack);
 		currentHp = Mathf.Max(currentHp, 0);
 		updateHpBar();
 		if (currentHp <= 0)

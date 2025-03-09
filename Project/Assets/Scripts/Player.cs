@@ -4,12 +4,15 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 	[SerializeField] private float moveSpeed = 5f;
-	private Rigidbody2D rb;
+    public float attack = 1;
+    [SerializeField] private float maxHp = 100f;
+    private float currentHp;
+    private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 
-	[SerializeField] private float maxHp = 100f;
-	private float currentHp;
+
+
 	[SerializeField] private Image hpBar;
 
 	[SerializeField] private GameManager gameManager;
@@ -21,7 +24,9 @@ public class Player : MonoBehaviour
 	}
 	void Start()
 	{
-		currentHp= maxHp;
+		attack = 1;
+		moveSpeed = 5f;
+        currentHp = maxHp;
 		updateHpBar();
 	}
 
@@ -89,4 +94,23 @@ public class Player : MonoBehaviour
 			updateHpBar();
 		}
 	}
+
+    #region updatefunction
+    public void UpgradeAttack(float amount)
+    {
+		goldManager.Instance.SpendGold(10);
+        attack += amount;
+    }
+    public void UpgradeMoveSpeed(float amount)
+    {
+        goldManager.Instance.SpendGold(10);
+        moveSpeed += amount/10;
+    }
+    public void UpgradeMaxHp(float amount)
+    {
+        goldManager.Instance.SpendGold(10);
+        maxHp += amount;
+    }
+    #endregion
+
 }
