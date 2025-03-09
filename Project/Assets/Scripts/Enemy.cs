@@ -7,18 +7,25 @@ public abstract class Enemy : MonoBehaviour
 
 	protected Player player;
 
-	[SerializeField] protected float maxHp=50f;
-	protected float currentHp;
+	[SerializeField] public float maxHp=50f;
+	public float currentHp ;
 	[SerializeField] private Image hpBar;
 
 	[SerializeField] protected float enterDamege=10f;
 	[SerializeField] protected float stayDamage=1f;
 
-	protected virtual void Start()
+   
+    protected virtual void Start()
 	{
 		player = FindAnyObjectByType<Player>();
-		currentHp = maxHp;
-		updateHpBar();
+        if (currentHp <= 0)
+        {
+            currentHp = maxHp;
+        }
+   
+        updateHpBar();
+		//enemyManager.Instance.LoadEnemies();
+
 	}
 	protected virtual void Update()
 	{
@@ -51,15 +58,24 @@ public abstract class Enemy : MonoBehaviour
 			die();
 		}
 	}
+
 	protected virtual void die()
 	{
 		Destroy(gameObject);
 	}
-	protected void updateHpBar()
+	public void updateHpBar()
 	{
 		if (hpBar != null)
 		{
 			hpBar.fillAmount = currentHp / maxHp;
 		}
 	}
+
+    public void SetCurrentHp(float hp)
+    {
+        Debug.Log("Before update: currentHp = " + currentHp);
+        currentHp = hp;
+        updateHpBar();
+        Debug.Log("After update: currentHp = " + currentHp);
+    }
 }

@@ -6,7 +6,7 @@ using System.IO;
 public class PlayerData
 {
     public float x, y, z;
-    public float currentHp;
+    public float currentHp =100f;
 }
 public class playerData : MonoBehaviour
 {
@@ -40,7 +40,7 @@ public class playerData : MonoBehaviour
     {
         if (player == null)
         {
-            Debug.LogWarning("Player chưa được gán vào PlayerSave!");
+            Debug.LogWarning("Player chưa được gán vào Data (script Player Data)!");
             return;
         }
         Player playerScript = player.GetComponent<Player>();
@@ -104,6 +104,11 @@ public class playerData : MonoBehaviour
         if (player != null)
         {
             player.position = new Vector3(0, 0, 0);
+            Player playerScript = player.GetComponent<Player>();
+
+            // Reset currentHp to maxHp
+            playerScript.currentHp = playerScript.maxHp;
+            playerScript.updateHpBar();
             Debug.Log("Đã đặt lại vị trí Player về mặc định!");
         }
     }

@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
 	}
 	void Start()
     {
-
-        playerData.Instance.LoadPlayer();
         LoadDataFromManager();
+        playerData.Instance.LoadPlayer();
+       
 
         // Ensure currentHp is properly initialized
         if (currentHp <= 0)  

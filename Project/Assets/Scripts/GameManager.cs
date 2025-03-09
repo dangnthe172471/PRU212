@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         UpdateEnergyBar();
         boss.SetActive(false);
         MainMenu();
+
     }
 
     // Update is called once per frame

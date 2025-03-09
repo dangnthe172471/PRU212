@@ -7,7 +7,8 @@ using UnityEngine;
 public class EnemyData
 {
     public string enemyType; 
-    public float x, y, z; 
+    public float x, y, z , currentHpEnemy;
+  
 }
 
 [System.Serializable]
@@ -23,15 +24,19 @@ public class enemyManager : MonoBehaviour
 
     public static enemyManager Instance { get; private set; }
 
-    private void Awake()
+  
+    void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
     void Start()
     {
         path = Path.Combine(Application.dataPath, "enemyData.json");
+      
     }
 
     void Update()
@@ -53,14 +58,19 @@ public class enemyManager : MonoBehaviour
 
         foreach (GameObject enemy in allEnemies)
         {
-            EnemyData data = new EnemyData
+            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            if (enemyScript != null)
             {
-                enemyType = enemy.name.Replace("(Clone)", "").Trim(), // Loại quái
-                x = enemy.transform.position.x,
-                y = enemy.transform.position.y,
-                z = enemy.transform.position.z
-            };
-            saveData.enemies.Add(data);
+                EnemyData data = new EnemyData
+                {
+                    enemyType = enemy.name.Replace("(Clone)", "").Trim(), // Loại quái
+                    x = enemy.transform.position.x,
+                    y = enemy.transform.position.y,
+                    z = enemy.transform.position.z,
+                    currentHpEnemy = enemyScript.currentHp,
+                };
+                saveData.enemies.Add(data);
+            }
         }
 
         string json = JsonUtility.ToJson(saveData, true);
@@ -91,7 +101,14 @@ public class enemyManager : MonoBehaviour
             GameObject prefab = enemyPrefabs.Find(p => p.name == data.enemyType);
             if (prefab != null)
             {
-                Instantiate(prefab, new Vector3(data.x, data.y, data.z), Quaternion.identity);
+                GameObject enemyInstance = Instantiate(prefab, new Vector3(data.x, data.y, data.z), Quaternion.identity);
+                Enemy enemyScript = enemyInstance.GetComponent<Enemy>();
+                if (enemyScript != null)
+                {
+                    enemyScript.SetCurrentHp(data.currentHpEnemy); // Gọi phương thức SetCurrentHp để khôi phục HP
+
+                }
+               
             }
             else
             {
@@ -117,6 +134,7 @@ public class enemyManager : MonoBehaviour
 
 
     }
+
 
 
 }
