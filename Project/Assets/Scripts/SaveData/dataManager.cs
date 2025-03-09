@@ -54,6 +54,10 @@ public class dataManager : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
-    public int gold =10000 ; 
+    public int gold = 10000;
+    public float attack = 1;
+    public float moveSpeed = 5f;
+    public float maxHp = 100f;
+    //public float currentHp = 100f;
 }
 

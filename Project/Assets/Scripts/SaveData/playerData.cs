@@ -6,12 +6,13 @@ using System.IO;
 public class PlayerData
 {
     public float x, y, z;
+    public float currentHp;
 }
 public class playerData : MonoBehaviour
 {
     public Transform player; // Kéo Player vào đây trong Unity Inspector
     private string path;
-    private Player p;
+    
 
     public static playerData Instance { get; private set; }
 
@@ -42,12 +43,13 @@ public class playerData : MonoBehaviour
             Debug.LogWarning("Player chưa được gán vào PlayerSave!");
             return;
         }
-
+        Player playerScript = player.GetComponent<Player>();
         PlayerData data = new PlayerData
         {
             x = player.position.x,
             y = player.position.y,
-            z = player.position.z
+            z = player.position.z,
+            currentHp = playerScript.currentHp
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -59,7 +61,7 @@ public class playerData : MonoBehaviour
     {
         if (player == null)
         {
-            Debug.LogWarning(" Player chưa được gán vào PlayerSave!");
+            Debug.LogWarning("Player chưa được gán vào PlayerSave!");
             return;
         }
 
@@ -68,15 +70,28 @@ public class playerData : MonoBehaviour
             string json = File.ReadAllText(path);
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
+            // Debug log để kiểm tra dữ liệu đọc được từ file
+            Debug.Log("Dữ liệu đọc được từ file JSON: " + json);
+
             player.position = new Vector3(data.x, data.y, data.z);
-            Debug.Log("Đã load vị trí Player từ JSON: " + json);
+            Player playerScript = player.GetComponent<Player>();
+
+            // Debug log để kiểm tra giá trị currentHp
+            Debug.Log("currentHp trước khi gán: " + playerScript.currentHp);
+
+            playerScript.currentHp = data.currentHp;
+
+            // Debug log để kiểm tra giá trị currentHp sau khi gán
+            Debug.Log("currentHp sau khi gán: " + playerScript.currentHp);
+
+            Debug.Log("Đã load vị trí Player và currentHp từ JSON");
         }
         else
         {
-            Debug.LogWarning("" +
-                "2 Không tìm thấy file JSON để load!");
+            Debug.LogWarning("Không tìm thấy file JSON để load!");
         }
     }
+
     public void ResetPlayer()
     {
       

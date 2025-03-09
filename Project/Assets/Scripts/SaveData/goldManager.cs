@@ -56,6 +56,7 @@ public class goldManager : MonoBehaviour
         if (goldText != null)
         {
             goldText.text = dataManager.Instance.gameData.gold.ToString();
+
         }
         else
         {

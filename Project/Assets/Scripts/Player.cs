@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-	[SerializeField] private float moveSpeed = 5f;
+	public float moveSpeed = 5f;
     public float attack = 1;
-    [SerializeField] private float maxHp = 100f;
-    private float currentHp;
+   public float maxHp = 100f;
+    public float currentHp;
     private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
@@ -23,12 +23,20 @@ public class Player : MonoBehaviour
 		animator = GetComponent<Animator>();
 	}
 	void Start()
-	{
-		attack = 1;
-		moveSpeed = 5f;
-        currentHp = maxHp;
-		updateHpBar();
-	}
+    {
+
+        playerData.Instance.LoadPlayer();
+        LoadDataFromManager();
+
+        // Ensure currentHp is properly initialized
+        if (currentHp <= 0)  
+        {
+            currentHp = maxHp;  
+        }
+
+        // Update the health bar
+        updateHpBar();
+    }
 
 	void Update()
 	{
@@ -66,7 +74,8 @@ public class Player : MonoBehaviour
 		currentHp -= damege;
 		currentHp = Mathf.Max(currentHp, 0);
 		updateHpBar();
-		if (currentHp <= 0)
+        playerData.Instance.SavePlayer();
+        if (currentHp <= 0)
 		{
 			die();
 		}
@@ -78,7 +87,7 @@ public class Player : MonoBehaviour
 		gameManager.OverMenu();
 	}
 
-	private void updateHpBar()
+	public void updateHpBar()
 	{
 		if (hpBar != null)
 		{
@@ -93,24 +102,39 @@ public class Player : MonoBehaviour
 			currentHp = Mathf.Min(currentHp, maxHp);
 			updateHpBar();
 		}
-	}
+        playerData.Instance.SavePlayer();
+    }
 
     #region updatefunction
     public void UpgradeAttack(float amount)
     {
 		goldManager.Instance.SpendGold(10);
         attack += amount;
+        dataManager.Instance.gameData.attack = attack;
+        dataManager.Instance.SaveGameData();
     }
     public void UpgradeMoveSpeed(float amount)
     {
         goldManager.Instance.SpendGold(10);
         moveSpeed += amount/10;
+        dataManager.Instance.gameData.moveSpeed = moveSpeed;
+        dataManager.Instance.SaveGameData();
     }
     public void UpgradeMaxHp(float amount)
     {
         goldManager.Instance.SpendGold(10);
         maxHp += amount;
+        dataManager.Instance.gameData.maxHp = maxHp;
+        dataManager.Instance.SaveGameData();
     }
     #endregion
+    private void LoadDataFromManager()
+    {
+        GameData data = dataManager.Instance.gameData;
+        attack = data.attack;
+        moveSpeed = data.moveSpeed;
+        maxHp = data.maxHp;
+        //currentHp = data.maxHp;
+    }
 
 }
