@@ -34,11 +34,18 @@ public class autoGeneratorMap : MonoBehaviour
 					// 20% tạo chướng ngại vật, 80% tạo mặt đất
 					if (Random.value > 0.8f)
 					{
-						collisionTilemap.SetTile(tilePosition, obstacleTile); // Obstacle vào cùng Tilemap với Wall
+						collisionTilemap.SetTile(tilePosition, obstacleTile);
+
+						TilemapRenderer tilemapRenderer = collisionTilemap.GetComponent<TilemapRenderer>();
+						tilemapRenderer.sortingLayerName = "Grass"; 
+
 					}
 					else
 					{
 						groundTilemap.SetTile(tilePosition, groundTile);
+
+						TilemapRenderer tilemapRenderer2 = groundTilemap.GetComponent<TilemapRenderer>();
+						tilemapRenderer2.sortingLayerName = "Group"; 
 					}
 				}
 			}

@@ -46,7 +46,6 @@ public class PlayerBullet : MonoBehaviour
 
     private void DealDamage(Collider2D collider, float damageAmount)
     {
-      
         Enemy enemy = collider.GetComponent<Enemy>();
         if (enemy != null)
         {
