@@ -30,7 +30,7 @@ public class PlayerBullet : MonoBehaviour
 			Enemy enemy = collider.GetComponent<Enemy>();
 			if (enemy != null)
 			{ 
-				enemy.takeDame(damege );
+				enemy.takeDame(damege);
 				GameObject blood = Instantiate(bloodPrefabs, transform.position, Quaternion.identity);
 				Destroy(blood, 1f);
 			}

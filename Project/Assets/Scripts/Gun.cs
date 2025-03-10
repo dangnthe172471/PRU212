@@ -186,7 +186,7 @@ public class Gun : MonoBehaviour
 			}
 			else
 			{
-				amoText.text = "Empty";
+				amoText.text = "0";
 			}
 		}
 	}

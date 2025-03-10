@@ -83,7 +83,7 @@ public class BossEnemy : Enemy
 
     private void RandomSkill()
     {
-        int ranDom = Random.Range(0, 5);
+        int ranDom = Random.Range(0, 4);
         switch (ranDom)
         {
             case 0:
@@ -97,9 +97,6 @@ public class BossEnemy : Enemy
                 break;
             case 3:
                 CreateMiniEnemy();
-                break;
-            case 4:
-                DichChuyen();
                 break;
         }
     }
