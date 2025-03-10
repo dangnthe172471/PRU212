@@ -15,7 +15,6 @@ public class explosion : MonoBehaviour
         {
             enemy.takeDame(damage);
         }
-
     }
     public void DestroyExplosion()
     {

@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
 	public float moveSpeed = 5f;
     public float attack = 1;
-   public float maxHp = 100f;
+    public float maxHp = 100f;
     public float currentHp;
     private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;

@@ -409,8 +409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317d5cd24ad0ace4ca292858835b61fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
   maxHp: 500
+  currentHp: 0
   hpBar: {fileID: 3496481928250095567}
   enterDamege: 10
   stayDamage: 1
@@ -420,7 +421,7 @@ MonoBehaviour:
   speedBulletCircle: 20
   hpValue: 100
   miniEnemy: {fileID: 5179385618056332705, guid: 75d78a0ad1be5764d80911a762183bda, type: 3}
-  skillCoolDown: 2
+  skillCoolDown: 1
 --- !u!1 &9207442006277730328
 GameObject:
   m_ObjectHideFlags: 0

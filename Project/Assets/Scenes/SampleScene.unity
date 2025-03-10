@@ -942,7 +942,7 @@ Transform:
   m_GameObject: {fileID: 77503483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3060,6 +3060,7 @@ MonoBehaviour:
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
+  levelBuff: 1
   audioManager: {fileID: 465881621}
 --- !u!212 &601607887
 SpriteRenderer:
@@ -3771,6 +3772,7 @@ MonoBehaviour:
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
+  levelBuff: 0
   audioManager: {fileID: 465881621}
 --- !u!212 &929606197
 SpriteRenderer:
@@ -3880,6 +3882,7 @@ MonoBehaviour:
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
+  levelBuff: 0
   audioManager: {fileID: 465881621}
 --- !u!212 &944859211
 SpriteRenderer:
@@ -21702,6 +21705,7 @@ MonoBehaviour:
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
+  levelBuff: 0
   audioManager: {fileID: 465881621}
 --- !u!212 &1476674838
 SpriteRenderer:
@@ -23151,6 +23155,7 @@ MonoBehaviour:
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
+  levelBuff: 0
   audioManager: {fileID: 465881621}
 --- !u!212 &1952356471
 SpriteRenderer:

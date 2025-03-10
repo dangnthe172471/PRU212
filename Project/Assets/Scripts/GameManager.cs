@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
         if (currentEnergy == energyHold)
         {
             CallBoss();
-
         }
     }
     private void CallBoss()
