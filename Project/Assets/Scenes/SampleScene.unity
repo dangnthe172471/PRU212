@@ -2016,6 +2016,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTag: btnShop
+--- !u!114 &305665312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305665298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff33365916ce4245ba39eb5ced5d624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNames:
+  - SampleScene
+  - Man_1
+  - Man_2
+  - Man_3
+  - Man_4
 --- !u!1 &316002934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,7 +2729,7 @@ PrefabInstance:
       objectReference: {fileID: 4099808591202269498}
     - target: {fileID: 2662555908821787338, guid: b38d6cc2a86061547b2cf3346d7da5e1, type: 3}
       propertyPath: panels.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2662555908821787338, guid: b38d6cc2a86061547b2cf3346d7da5e1, type: 3}
       propertyPath: 'panels.Array.data[0]'
@@ -2745,6 +2763,10 @@ PrefabInstance:
       propertyPath: 'panels.Array.data[7]'
       value: 
       objectReference: {fileID: 1710190123}
+    - target: {fileID: 2662555908821787338, guid: b38d6cc2a86061547b2cf3346d7da5e1, type: 3}
+      propertyPath: 'panels.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1954015178}
     - target: {fileID: 4136772113677745319, guid: b38d6cc2a86061547b2cf3346d7da5e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.13
@@ -2951,7 +2973,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1954015180}
+      - m_Target: {fileID: 305665312}
         m_TargetAssemblyTypeName: nextLevel, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
@@ -3504,7 +3526,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1954015180}
+      - m_Target: {fileID: 305665312}
         m_TargetAssemblyTypeName: nextLevel, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
@@ -4286,7 +4308,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1954015180}
+      - m_Target: {fileID: 305665312}
         m_TargetAssemblyTypeName: nextLevel, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
@@ -23026,7 +23048,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1954015180}
+      - m_Target: {fileID: 305665312}
         m_TargetAssemblyTypeName: nextLevel, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
@@ -23237,7 +23259,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954015178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff33365916ce4245ba39eb5ced5d624, type: 3}
   m_Name: 
@@ -25451,6 +25473,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5597024762878249631, guid: 57c1040c95ecc304980745a13816392f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 305665308}
+    - targetCorrespondingSourceObject: {fileID: 5597024762878249631, guid: 57c1040c95ecc304980745a13816392f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 305665312}
   m_SourcePrefab: {fileID: 100100000, guid: 57c1040c95ecc304980745a13816392f, type: 3}
 --- !u!1 &4249206312123111604 stripped
 GameObject:
@@ -25546,7 +25571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3041037364412615398, guid: bf97f26317ba60e4dac93b578264afb0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3345971172405297599, guid: bf97f26317ba60e4dac93b578264afb0, type: 3}
       propertyPath: m_Enabled
