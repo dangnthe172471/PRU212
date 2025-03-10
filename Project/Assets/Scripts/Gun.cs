@@ -12,8 +12,8 @@ public class Gun : MonoBehaviour
 	private float nextShot;
 	[SerializeField] private int maxAmmo = 24;
 	[SerializeField] private int currentAmmo;
-
-	[SerializeField] private TextMeshProUGUI amoText;
+    private int defaultMaxAmmo;
+    [SerializeField] private TextMeshProUGUI amoText;
 	[SerializeField] private TextMeshProUGUI timeBuff;
 
 	private bool isBuff = false;
@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
+        defaultMaxAmmo = maxAmmo;
         currentAmmo = maxAmmo;
 		updateAmoText();
 	}
@@ -190,4 +191,25 @@ public class Gun : MonoBehaviour
 			}
 		}
 	}
+    public void ActivateAmmoBuff()
+    {
+        StopCoroutine(ResetAmmoBuff()); 
+
+        maxAmmo = 50; 
+        currentAmmo = maxAmmo; 
+        updateAmoText();
+
+        StartCoroutine(ResetAmmoBuff());
+    }
+    private IEnumerator ResetAmmoBuff()
+    {
+        yield return new WaitForSeconds(15f);
+        maxAmmo = defaultMaxAmmo; 
+        if (currentAmmo > maxAmmo)
+        {
+            currentAmmo = maxAmmo; 
+        }
+        updateAmoText();
+    }
+
 }
