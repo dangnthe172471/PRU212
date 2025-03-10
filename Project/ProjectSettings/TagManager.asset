@@ -18,6 +18,9 @@ TagManager:
   - BulletLevel3
   - EnemyExplosion
   - EnemyEnergy
+  - Box
+  - FireRed
+  - FireBlue
   layers:
   - Default
   - TransparentFX

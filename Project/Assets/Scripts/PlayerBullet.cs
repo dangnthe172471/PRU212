@@ -35,7 +35,8 @@ public class PlayerBullet : MonoBehaviour
         }
         else if (collider.CompareTag("EnemyExplosion"))
         {
-            DealDamage(collider, player.attack / 10 + damege / 10);
+            float finalDamage = isBulletLevel2 ? (player.attack / 4 + damege / 4) : (damege + player.attack);
+            DealDamage(collider, finalDamage);
         }
         else if (collider.CompareTag("EnemyEnergy"))
         {
