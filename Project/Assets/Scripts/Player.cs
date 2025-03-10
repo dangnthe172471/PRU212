@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
     #region updatefunction
     public void UpgradeAttack(float amount)
     {
+		goldManager.Instance.canSpend = true;
 		goldManager.Instance.SpendGold(10);
         attack += amount;
         dataManager.Instance.gameData.attack = attack;
@@ -115,6 +116,7 @@ public class Player : MonoBehaviour
     }
     public void UpgradeMoveSpeed(float amount)
     {
+        goldManager.Instance.canSpend = true;
         goldManager.Instance.SpendGold(10);
         moveSpeed += amount/10;
         dataManager.Instance.gameData.moveSpeed = moveSpeed;
@@ -122,6 +124,7 @@ public class Player : MonoBehaviour
     }
     public void UpgradeMaxHp(float amount)
     {
+        goldManager.Instance.canSpend = true;
         goldManager.Instance.SpendGold(10);
         maxHp += amount;
         dataManager.Instance.gameData.maxHp = maxHp;

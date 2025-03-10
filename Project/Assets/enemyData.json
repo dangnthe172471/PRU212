@@ -1,65 +1,107 @@
 {
     "enemies": [
         {
+            "enemyType": "ExplosionEnemy",
+            "x": 4.550620079040527,
+            "y": 0.5416249632835388,
+            "z": 0.0,
+            "currentHpEnemy": 6.0
+        },
+        {
+            "enemyType": "HealEnemy",
+            "x": 12.964964866638184,
+            "y": 5.487524509429932,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
             "enemyType": "EnergyEnemy",
-            "x": -8.027398109436036,
-            "y": -3.099514961242676,
+            "x": 0.49975574016571047,
+            "y": 4.4226861000061039,
             "z": 0.0,
             "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "EnergyEnemy",
+            "x": 11.074954986572266,
+            "y": 0.1706448495388031,
+            "z": 0.0,
+            "currentHpEnemy": 39.0
         },
         {
             "enemyType": "HealEnemy",
-            "x": -0.20851242542266847,
-            "y": -5.799747467041016,
-            "z": 0.0,
-            "currentHpEnemy": 50.0
-        },
-        {
-            "enemyType": "BasicEnemy",
-            "x": -3.411696195602417,
-            "y": -7.900928020477295,
-            "z": 0.0,
-            "currentHpEnemy": 19.0
-        },
-        {
-            "enemyType": "BasicEnemy",
-            "x": 5.134125709533691,
-            "y": -4.713863849639893,
-            "z": 0.0,
-            "currentHpEnemy": 50.0
-        },
-        {
-            "enemyType": "HealEnemy",
-            "x": -1.3586195707321168,
-            "y": -9.7449369430542,
-            "z": 0.0,
-            "currentHpEnemy": 19.0
-        },
-        {
-            "enemyType": "BasicEnemy",
-            "x": -14.304780960083008,
-            "y": -14.209263801574707,
-            "z": 0.0,
-            "currentHpEnemy": 50.0
-        },
-        {
-            "enemyType": "BasicEnemy",
-            "x": 11.451035499572754,
-            "y": -3.8434369564056398,
+            "x": 16.516103744506837,
+            "y": 3.5054619312286379,
             "z": 0.0,
             "currentHpEnemy": 50.0
         },
         {
             "enemyType": "ExplosionEnemy",
-            "x": 9.982694625854493,
-            "y": 10.452117919921875,
+            "x": -4.258973598480225,
+            "y": -6.790900230407715,
             "z": 0.0,
             "currentHpEnemy": 50.0
         },
         {
             "enemyType": "HealEnemy",
-            "x": -20.38672637939453,
-            "y": 12.048910140991211,
+            "x": 12.55294418334961,
+            "y": -0.9454132318496704,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "ExplosionEnemy",
+            "x": -5.8473381996154789,
+            "y": 9.290884971618653,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "EnergyEnemy",
+            "x": 19.280540466308595,
+            "y": 10.667351722717286,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "EnergyEnemy",
+            "x": -9.146933555603028,
+            "y": -0.9576879143714905,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "HealEnemy",
+            "x": -11.089155197143555,
+            "y": -1.3468300104141236,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "EnergyEnemy",
+            "x": -14.464884757995606,
+            "y": -13.649556159973145,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "EnergyEnemy",
+            "x": -16.17143440246582,
+            "y": -14.683135032653809,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "ExplosionEnemy",
+            "x": 17.121177673339845,
+            "y": -0.31514087319374087,
+            "z": 0.0,
+            "currentHpEnemy": 50.0
+        },
+        {
+            "enemyType": "BasicEnemy",
+            "x": -18.6977481842041,
+            "y": 11.644246101379395,
             "z": 0.0,
             "currentHpEnemy": 50.0
         }
