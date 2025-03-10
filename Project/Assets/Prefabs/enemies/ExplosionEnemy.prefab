@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7463729346820964895}
   m_Layer: 0
   m_Name: ExplosionEnemy
-  m_TagString: Enemy
+  m_TagString: EnemyExplosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,8 +274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfb9ddb93382c14b8e4a35e38374077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  maxHp: 50
+  moveSpeed: 2
+  maxHp: 100
+  currentHp: 0
   hpBar: {fileID: 4936606387491306658}
   enterDamege: 10
   stayDamage: 1
