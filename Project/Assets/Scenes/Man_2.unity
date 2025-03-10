@@ -1936,9 +1936,9 @@ MonoBehaviour:
   height: 50
   collisionTilemap: {fileID: 596144898}
   groundTilemap: {fileID: 93456410}
-  wallTile: {fileID: 11400000, guid: 8e08915aaf4d5d24db489789da3b0977, type: 2}
-  groundTile: {fileID: 11400000, guid: f440c091269ebed4bb40b1446fd76f71, type: 2}
-  obstacleTile: {fileID: 11400000, guid: 6855cbd91ea2cce4a8062c2826b8175c, type: 2}
+  wallTile: {fileID: 11400000, guid: c688597816461114caf2cfd5a3fc7b73, type: 2}
+  groundTile: {fileID: 11400000, guid: 3c4a56944a97aac4682826f9d3312e40, type: 2}
+  obstacleTile: {fileID: 11400000, guid: 38778f37d32b51349a21acf2e89dc26d, type: 2}
 --- !u!1 &1117503719
 GameObject:
   m_ObjectHideFlags: 0

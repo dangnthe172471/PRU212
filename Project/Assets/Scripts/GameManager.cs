@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
         currentEnergy = 0;
         UpdateEnergyBar();
         boss.SetActive(false);
-        MainMenu();
+        //MainMenu();
+        Home();
 
     }
 
@@ -154,6 +155,12 @@ public class GameManager : MonoBehaviour
     {
 
         ShowPanelByName("Home");
+        Time.timeScale = 0f;
+    }
+
+    public void ChooseScene()
+    {
+        ShowPanelByName("ChooseLevel");
         Time.timeScale = 0f;
     }
     //public void RestartGame()
