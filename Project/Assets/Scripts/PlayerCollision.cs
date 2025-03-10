@@ -27,6 +27,34 @@ public class PlayerCollision : MonoBehaviour
 			}
 			Destroy(collision.gameObject);
 			audioManager.PlayEnerty();
-		}
-	}
+		}else if (collision.CompareTag("HealHp"))
+		{
+            Player player = GetComponent<Player>();
+            player.Heal(player.maxHp);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("Box"))
+        {
+            Player player = GetComponent<Player>();
+            player.Heal(player.maxHp);
+
+
+            Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("ItemBuff")) //tang so luong dan
+        {
+            Player player = GetComponent<Player>();
+            player.Heal(player.maxHp);
+            GameObject[] allGuns = GameObject.FindGameObjectsWithTag("Gun");
+            foreach (var e in allGuns)
+            {
+                Gun gun = e.GetComponent<Gun>();
+                if (gun != null)
+                {
+                    gun.ActivateAmmoBuff();
+                }
+            }
+            Destroy(collision.gameObject);
+        }
+    }
 }

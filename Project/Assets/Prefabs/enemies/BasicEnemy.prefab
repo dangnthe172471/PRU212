@@ -280,6 +280,19 @@ MonoBehaviour:
   hpBar: {fileID: 1587608147439982167}
   enterDamege: 8
   stayDamage: 1
+  dropItems:
+  - itemPrefab: {fileID: 4954339381136485930, guid: 8725100106a58b04da17b781cad2db74, type: 3}
+    dropRate: 0.1
+  - itemPrefab: {fileID: 4528597822972686793, guid: b43565bdddc119946a765aacb7a366b8, type: 3}
+    dropRate: 0.1
+  - itemPrefab: {fileID: 3366451862976210996, guid: f301295347d235a4187c1c087bdc445d, type: 3}
+    dropRate: 0.1
+  - itemPrefab: {fileID: 1846693692287028820, guid: 77648df6bf6992940903b33d30545e9c, type: 3}
+    dropRate: 0.1
+  - itemPrefab: {fileID: 7767106835915702479, guid: 53ca71339890a6140bdd09e5809ba438, type: 3}
+    dropRate: 0.1
+  - itemPrefab: {fileID: 4439302583456298347, guid: 10fbff3cd43116e40b6083a10ec4078d, type: 3}
+    dropRate: 0.1
 --- !u!1 &942806562729195163
 GameObject:
   m_ObjectHideFlags: 0
