@@ -2547,13 +2547,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePos: {fileID: 284946364}
-  bulletPrefabs: {fileID: 5230739179113856233, guid: 38d8de810ad36604186e7ac7a9990b34, type: 3}
+  bulletPrefabs: {fileID: 4986542803180139796, guid: b31be081f4bf28545bc72fc6330342ba, type: 3}
   shotDelay: 0.15
   maxAmmo: 24
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
-  levelBuff: 0
+  levelBuff: 1
   audioManager: {fileID: 465881621}
 --- !u!212 &929606197
 SpriteRenderer:
@@ -2657,13 +2657,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePos: {fileID: 1304324726}
-  bulletPrefabs: {fileID: 5230739179113856233, guid: 38d8de810ad36604186e7ac7a9990b34, type: 3}
+  bulletPrefabs: {fileID: 4986542803180139796, guid: b31be081f4bf28545bc72fc6330342ba, type: 3}
   shotDelay: 0.15
   maxAmmo: 24
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
-  levelBuff: 0
+  levelBuff: 1
   audioManager: {fileID: 465881621}
 --- !u!212 &944859211
 SpriteRenderer:
@@ -19306,13 +19306,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePos: {fileID: 1611200387}
-  bulletPrefabs: {fileID: 5230739179113856233, guid: 38d8de810ad36604186e7ac7a9990b34, type: 3}
+  bulletPrefabs: {fileID: 4986542803180139796, guid: b31be081f4bf28545bc72fc6330342ba, type: 3}
   shotDelay: 0.15
   maxAmmo: 24
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
-  levelBuff: 0
+  levelBuff: 1
   audioManager: {fileID: 465881621}
 --- !u!212 &1476674838
 SpriteRenderer:
@@ -19419,7 +19419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728b33fafda3b31409f3223c017f2113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   attack: 100
   maxHp: 1e+11
   currentHp: 0
@@ -20129,13 +20129,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePos: {fileID: 2032455949}
-  bulletPrefabs: {fileID: 5230739179113856233, guid: 38d8de810ad36604186e7ac7a9990b34, type: 3}
+  bulletPrefabs: {fileID: 4986542803180139796, guid: b31be081f4bf28545bc72fc6330342ba, type: 3}
   shotDelay: 0.15
   maxAmmo: 24
   currentAmmo: 0
   amoText: {fileID: 418767350}
   timeBuff: {fileID: 0}
-  levelBuff: 0
+  levelBuff: 1
   audioManager: {fileID: 465881621}
 --- !u!212 &1952356471
 SpriteRenderer:
