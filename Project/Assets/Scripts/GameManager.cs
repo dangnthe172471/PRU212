@@ -43,12 +43,12 @@ public class GameManager : MonoBehaviour
         };
         currentEnergy += 1;
         UpdateEnergyBar();
-        if (currentEnergy == energyHold)
-        {
-            CallBoss();
-        }
+        //if (currentEnergy == energyHold)
+        //{
+        //    CallBoss();
+        //}
     }
-    private void CallBoss()
+    public void CallBoss()
     {
         callBoss = true;
         boss.SetActive(true);
