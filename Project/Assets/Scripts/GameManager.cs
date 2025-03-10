@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gold;
 
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private float powerUpInterval = 30f;
+    private float nextPowerUpTime = 0f;
 
     void Start()
     {
@@ -30,25 +32,54 @@ public class GameManager : MonoBehaviour
 		audioManager.StopAudioGame();
 	}
 
-    // Update is called once per frame
     void Update()
     {
-
+        if (Time.time >= nextPowerUpTime)
+        {
+            nextPowerUpTime = Time.time + powerUpInterval;
+            PowerUpPlayer();
+            PowerUpEnemies();
+        }
     }
-    //public void addE()
-    //{
-    //    if (callBoss)
-    //    {
-    //        return;
-    //    };
-    //    currentEnergy += 1;
-    //    UpdateEnergyBar();
-    //    if (currentEnergy == energyHold)
-    //    {
-    //        CallBoss();
-    //    }
-    //}
-    public void CallBoss()
+
+    private void PowerUpPlayer()
+    {
+        Player player = FindObjectOfType<Player>();
+        if (player != null)
+        {
+            player.maxHp += 10;  
+            player.attack += 2;   
+            player.moveSpeed *= 1.05f; 
+        }
+    }
+
+    public void PowerUpEnemies()
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.maxHp *= 1.2f; 
+            enemy.enterDamege *= 1.15f;
+            enemy.stayDamage *= 1.15f; 
+        }
+    }
+
+
+
+    public void addE()
+    {
+        if (callBoss)
+        {
+            return;
+        };
+        currentEnergy += 1;
+        UpdateEnergyBar();
+        if (currentEnergy == energyHold)
+        {
+            CallBoss();
+        }
+    }
+    private void CallBoss()
     {
         callBoss = true;
         boss.SetActive(true);
