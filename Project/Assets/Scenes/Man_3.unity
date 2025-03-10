@@ -1898,6 +1898,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4099808591202269498}
     - target: {fileID: 2662555908821787338, guid: b38d6cc2a86061547b2cf3346d7da5e1, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 465881621}
+    - target: {fileID: 2662555908821787338, guid: b38d6cc2a86061547b2cf3346d7da5e1, type: 3}
       propertyPath: panels.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -2592,6 +2596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 457484522}
+  timeSk: 30
+  gameManager: {fileID: 1932915801}
 --- !u!1 &759100335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,7 +5875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3921834227224225522, guid: 92ccc1c8b8405e74986688590955ab4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

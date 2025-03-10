@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private int currentEnergy;
+    //private int currentEnergy;
     [SerializeField] private int energyHold = 3;
     [SerializeField] private GameObject boss;
     private bool callBoss = false;
@@ -18,37 +18,37 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mana;
     [SerializeField] private GameObject gold;
 
-
+    [SerializeField] private AudioManager audioManager;
 
     void Start()
     {
-        currentEnergy = 0;
-        UpdateEnergyBar();
+        //currentEnergy = 0;
+        //UpdateEnergyBar();
         boss.SetActive(false);
         //MainMenu();
         Home();
-
-    }
+		audioManager.StopAudioGame();
+	}
 
     // Update is called once per frame
     void Update()
     {
 
     }
-    public void addE()
-    {
-        if (callBoss)
-        {
-            return;
-        };
-        currentEnergy += 1;
-        UpdateEnergyBar();
-        if (currentEnergy == energyHold)
-        {
-            CallBoss();
-        }
-    }
-    private void CallBoss()
+    //public void addE()
+    //{
+    //    if (callBoss)
+    //    {
+    //        return;
+    //    };
+    //    currentEnergy += 1;
+    //    UpdateEnergyBar();
+    //    if (currentEnergy == energyHold)
+    //    {
+    //        CallBoss();
+    //    }
+    //}
+    public void CallBoss()
     {
         callBoss = true;
         boss.SetActive(true);
@@ -56,23 +56,18 @@ public class GameManager : MonoBehaviour
 
         //hidden energyBar
         mana.SetActive(false);
+		audioManager.PlayBossAudio();
 
+	}
+    //private void UpdateEnergyBar()
+    //{
+    //    if (energyBar != null)
+    //    {
+    //        float fill = Mathf.Clamp01((float)currentEnergy / (float)energyHold);
+    //        energyBar.fillAmount = fill;
+    //    }
 
-    }
-    private void UpdateEnergyBar()
-    {
-        if (energyBar != null)
-        {
-            float fill = Mathf.Clamp01((float)currentEnergy / (float)energyHold);
-            energyBar.fillAmount = fill;
-        }
-
-    }
-   
-
- 
-
-
+    //}
 
 
     public void MainMenu()
@@ -94,7 +89,8 @@ public class GameManager : MonoBehaviour
     {
         ShowPanelByName("GamePause");
         Time.timeScale = 0f;
-    }
+		audioManager.StopAudioGame();
+	}
     public void NewGame()
     {
         playerData.Instance.ResetPlayer();
@@ -102,7 +98,8 @@ public class GameManager : MonoBehaviour
         ShowPanelByName();
         mana.SetActive(true);
         Time.timeScale = 1f;
-    }
+		audioManager.PlayDefaultAudio();
+	}
     public void ResumeGame()
     {
         ShowPanelByName();
@@ -120,7 +117,7 @@ public class GameManager : MonoBehaviour
     {
         ShowPanelByName("Home");
         Time.timeScale = 0f;
-    }
+	}
     public void UpGrade()
     {
      
@@ -142,14 +139,16 @@ public class GameManager : MonoBehaviour
         mana.SetActive(true);
         ShowPanelByName();
         Time.timeScale = 1f;
-    }
-    public void ContinuePauseMenu()
+		audioManager.PlayDefaultAudio();
+	}
+	public void ContinuePauseMenu()
     {
 
         mana.SetActive(true);
         ShowPanelByName();
         Time.timeScale = 1f;
-    }
+		audioManager.PlayDefaultAudio();
+	}
     public void Quit()
     {
 

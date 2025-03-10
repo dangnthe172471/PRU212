@@ -15,7 +15,7 @@ public class PlayerCollision : MonoBehaviour
 		}
 		else if (collision.CompareTag("Energy"))
 		{
-			gameManager.addE();
+			//gameManager.addE();
 			GameObject[] allGuns = GameObject.FindGameObjectsWithTag("Gun");
 			foreach (var e in allGuns)
 			{
