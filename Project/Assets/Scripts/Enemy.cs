@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
-	[SerializeField] protected float moveSpeed = 1.0f;
+	[SerializeField] public float moveSpeed = 1.0f;
 
 	protected Player player;
 
@@ -11,8 +11,8 @@ public abstract class Enemy : MonoBehaviour
 	public float currentHp ;
 	[SerializeField] private Image hpBar;
 
-	[SerializeField] protected float enterDamege=10f;
-	[SerializeField] protected float stayDamage=1f;
+	[SerializeField] public float enterDamege=10f;
+	[SerializeField] public float stayDamage=1f;
 
    
     protected virtual void Start()
