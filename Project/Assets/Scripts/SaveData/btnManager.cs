@@ -10,12 +10,12 @@ public class btnManager : MonoBehaviour
 
     private void Start()
     {
-        
+        AssignButtonEvents();
     }
     private void Update()
     {
 
-        AssignButtonEvents();
+       
     }
 
     #region Shop
