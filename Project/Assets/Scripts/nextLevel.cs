@@ -21,8 +21,11 @@ public class nextLevel : MonoBehaviour
     }
 
 
-
     public void LoadScene(int sceneIndex)
+    {
+        LoadNextScene(sceneIndex);
+    }
+    public void LoadNextScene(int sceneIndex)
     {
         if (sceneNames.Count == 0 || sceneIndex >= sceneNames.Count)
         {
