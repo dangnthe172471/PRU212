@@ -55,6 +55,10 @@ public class PlayerCollision : MonoBehaviour
                 }
             }
             Destroy(collision.gameObject);
+        }else if (collision.CompareTag("coin"))
+        {
+            goldManager.Instance.AddGold(1);
+            Destroy(collision.gameObject);
         }
     }
 }

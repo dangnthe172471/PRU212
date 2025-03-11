@@ -21,6 +21,8 @@ TagManager:
   - Box
   - FireRed
   - FireBlue
+  - HealHp
+  - coin
   layers:
   - Default
   - TransparentFX

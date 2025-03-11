@@ -1,3 +1,39 @@
 {
-    "enemies": []
+    "enemies": [
+        {
+            "enemyType": "BasicEnemy",
+            "x": -8.511329650878907,
+            "y": -14.59066104888916,
+            "z": 0.0,
+            "currentHpEnemy": 34.0
+        },
+        {
+            "enemyType": "HealEnemy",
+            "x": -9.068241119384766,
+            "y": -14.631473541259766,
+            "z": 0.0,
+            "currentHpEnemy": 78.0
+        },
+        {
+            "enemyType": "BasicEnemy",
+            "x": -9.557490348815918,
+            "y": -14.493812561035157,
+            "z": 0.0,
+            "currentHpEnemy": 78.0
+        },
+        {
+            "enemyType": "HealEnemy",
+            "x": -10.224540710449219,
+            "y": -14.18293285369873,
+            "z": 0.0,
+            "currentHpEnemy": 56.0
+        },
+        {
+            "enemyType": "HealEnemy",
+            "x": -16.416929244995118,
+            "y": -8.726381301879883,
+            "z": 0.0,
+            "currentHpEnemy": 100.0
+        }
+    ]
 }
