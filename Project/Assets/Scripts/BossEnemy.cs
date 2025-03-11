@@ -6,7 +6,7 @@ public class BossEnemy : Enemy
     [SerializeField] private Transform firePoint;
     [SerializeField] private float speedBulletNormal = 20f;
     [SerializeField] private float speedBulletCircle = 20f;
-    [SerializeField] private float hpValue = 100f;
+    [SerializeField] private float hpValue = 10f;
     [SerializeField] private GameObject miniEnemy;
     [SerializeField] private float skillCoolDown = 5f;
     private float nextSkillTime = 5f;

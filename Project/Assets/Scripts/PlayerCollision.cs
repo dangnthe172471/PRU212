@@ -36,12 +36,42 @@ public class PlayerCollision : MonoBehaviour
         else if (collision.CompareTag("Box"))
         {
             Player player = GetComponent<Player>();
-            player.Heal(player.maxHp);
 
+            int randomEffect = Random.Range(0, 3);
 
+            if (randomEffect == 0)
+            {
+                player.Heal(player.maxHp);
+            }
+            else if(randomEffect == 1)
+            {
+                GameObject[] allGuns = GameObject.FindGameObjectsWithTag("Gun");
+                foreach (var e in allGuns)
+                {
+                    Gun gun = e.GetComponent<Gun>();
+                    if (gun != null)
+                    {
+                        gun.ActivateAmmoBuff();
+                    }
+                }
+            }
+            else if (randomEffect == 2)
+            {
+                player.Heal(player.maxHp);
+                GameObject[] allGuns = GameObject.FindGameObjectsWithTag("Gun");
+                foreach (var e in allGuns)
+                {
+                    Gun gun = e.GetComponent<Gun>();
+                    if (gun != null)
+                    {
+                        gun.ActivateAmmoBuff();
+                    }
+                }
+            }
             Destroy(collision.gameObject);
         }
-        else if (collision.CompareTag("ItemBuff")) //tang so luong dan
+
+        else if (collision.CompareTag("ItemBuff")) 
         {
             Player player = GetComponent<Player>();
             player.Heal(player.maxHp);

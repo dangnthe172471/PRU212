@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,24 +8,32 @@ public abstract class Enemy : MonoBehaviour
 
 	protected Player player;
 
-	[SerializeField] public float maxHp=50f;
-	public float currentHp ;
+	[SerializeField] public float maxHp = 50f;
+	public float currentHp;
 	[SerializeField] private Image hpBar;
 
-	[SerializeField] public float enterDamege=10f;
-	[SerializeField] public float stayDamage=1f;
+	[SerializeField] public float enterDamege = 10f;
+	[SerializeField] public float stayDamage = 1f;
 
-   
-    protected virtual void Start()
+	[SerializeField] public TextMeshProUGUI diemText;
+	private static float diem = 0f;
+	[SerializeField] public float diemZB = 100f;
+
+	protected virtual void Start()
 	{
 		player = FindAnyObjectByType<Player>();
-        if (currentHp <= 0)
-        {
-            currentHp = maxHp;
-        }
-   
-        updateHpBar();
+		if (currentHp <= 0)
+		{
+			currentHp = maxHp;
+		}
+
+		updateHpBar();
 		//enemyManager.Instance.LoadEnemies();
+
+		if (diemText == null)
+		{
+			diemText = GameObject.Find("Diem").GetComponent<TextMeshProUGUI>();
+		}
 
 	}
 	protected virtual void Update()
@@ -55,6 +64,15 @@ public abstract class Enemy : MonoBehaviour
 		updateHpBar();
 		if (currentHp <= 0)
 		{
+			diem += diemZB;
+			if (Time.timeScale == 0)
+			{
+				diemText.text = "";
+			}
+			else
+			{
+				diemText.text = diem.ToString();
+			}
 			die();
 		}
 	}
@@ -71,13 +89,13 @@ public abstract class Enemy : MonoBehaviour
 		}
 	}
 
-    public void SetCurrentHp(float hp)
-    {
-        Debug.Log("Before update: currentHp = " + currentHp);
-        currentHp = hp;
-        updateHpBar();
-        Debug.Log("After update: currentHp = " + currentHp);
-    }
+	public void SetCurrentHp(float hp)
+	{
+		Debug.Log("Before update: currentHp = " + currentHp);
+		currentHp = hp;
+		updateHpBar();
+		Debug.Log("After update: currentHp = " + currentHp);
+	}
 
 
 
