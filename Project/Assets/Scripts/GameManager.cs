@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //private int currentEnergy;
+    private int currentEnergy;
     [SerializeField] private int energyHold = 3;
     [SerializeField] private GameObject boss;
     private bool callBoss = false;
@@ -19,35 +19,66 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gold;
 
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private float powerUpInterval = 30f;
+    private float nextPowerUpTime = 0f;
 
     void Start()
     {
-        //currentEnergy = 0;
-        //UpdateEnergyBar();
+        currentEnergy = 0;
+        UpdateEnergyBar();
         boss.SetActive(false);
-        //MainMenu();
+        MainMenu();
         Home();
 		audioManager.StopAudioGame();
 	}
 
-    // Update is called once per frame
     void Update()
     {
-
+        if (Time.time >= nextPowerUpTime)
+        {
+            nextPowerUpTime = Time.time + powerUpInterval;
+            PowerUpPlayer();
+            PowerUpEnemies();
+        }
     }
-    //public void addE()
-    //{
-    //    if (callBoss)
-    //    {
-    //        return;
-    //    };
-    //    currentEnergy += 1;
-    //    UpdateEnergyBar();
-    //    if (currentEnergy == energyHold)
-    //    {
-    //        CallBoss();
-    //    }
-    //}
+
+    private void PowerUpPlayer()
+    {
+        Player player = FindObjectOfType<Player>();
+        if (player != null)
+        {
+            player.maxHp += 10;  
+            player.attack += 2;   
+            player.moveSpeed *= 1.05f; 
+        }
+    }
+
+    public void PowerUpEnemies()
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.maxHp *= 1.2f; 
+            enemy.enterDamege *= 1.15f;
+            enemy.stayDamage *= 1.15f; 
+        }
+    }
+
+
+
+    public void addE()
+    {
+        if (callBoss)
+        {
+            return;
+        };
+        currentEnergy += 1;
+        UpdateEnergyBar();
+        if (currentEnergy == energyHold)
+        {
+            CallBoss();
+        }
+    }
     public void CallBoss()
     {
         callBoss = true;
@@ -59,15 +90,15 @@ public class GameManager : MonoBehaviour
 		audioManager.PlayBossAudio();
 
 	}
-    //private void UpdateEnergyBar()
-    //{
-    //    if (energyBar != null)
-    //    {
-    //        float fill = Mathf.Clamp01((float)currentEnergy / (float)energyHold);
-    //        energyBar.fillAmount = fill;
-    //    }
+    private void UpdateEnergyBar()
+    {
+        if (energyBar != null)
+        {
+            float fill = Mathf.Clamp01((float) currentEnergy / (float)energyHold);
+            energyBar.fillAmount = fill;
+        }
 
-    //}
+    }
 
 
     public void MainMenu()
