@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +15,11 @@ public abstract class Enemy : MonoBehaviour
 	[SerializeField] public float enterDamege=10f;
 	[SerializeField] public float stayDamage=1f;
 
-   
-    protected virtual void Start()
+	[SerializeField] public TextMeshProUGUI diemText;
+	private static float diem = 0f;
+	[SerializeField] public float diemZB = 100f;
+
+	protected virtual void Start()
 	{
 		player = FindAnyObjectByType<Player>();
         if (currentHp <= 0)
@@ -25,6 +29,11 @@ public abstract class Enemy : MonoBehaviour
    
         updateHpBar();
 		//enemyManager.Instance.LoadEnemies();
+
+		if (diemText == null)
+		{
+			diemText = GameObject.Find("Diem").GetComponent<TextMeshProUGUI>();
+		}
 
 	}
 	protected virtual void Update()
@@ -55,6 +64,8 @@ public abstract class Enemy : MonoBehaviour
 		updateHpBar();
 		if (currentHp <= 0)
 		{
+			diem += diemZB;
+			diemText.text = diem.ToString();
 			die();
 		}
 	}
