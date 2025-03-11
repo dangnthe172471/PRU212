@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //private int currentEnergy;
+    private int currentEnergy;
     [SerializeField] private int energyHold = 3;
     [SerializeField] private GameObject boss;
     private bool callBoss = false;
@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //currentEnergy = 0;
-        //UpdateEnergyBar();
+        currentEnergy = 0;
+        UpdateEnergyBar();
         boss.SetActive(false);
-        //MainMenu();
+        MainMenu();
         Home();
 		audioManager.StopAudioGame();
 	}
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
             CallBoss();
         }
     }
-    private void CallBoss()
+    public void CallBoss()
     {
         callBoss = true;
         boss.SetActive(true);
@@ -90,15 +90,15 @@ public class GameManager : MonoBehaviour
 		audioManager.PlayBossAudio();
 
 	}
-    //private void UpdateEnergyBar()
-    //{
-    //    if (energyBar != null)
-    //    {
-    //        float fill = Mathf.Clamp01((float)currentEnergy / (float)energyHold);
-    //        energyBar.fillAmount = fill;
-    //    }
+    private void UpdateEnergyBar()
+    {
+        if (energyBar != null)
+        {
+            float fill = Mathf.Clamp01((float) currentEnergy / (float)energyHold);
+            energyBar.fillAmount = fill;
+        }
 
-    //}
+    }
 
 
     public void MainMenu()
